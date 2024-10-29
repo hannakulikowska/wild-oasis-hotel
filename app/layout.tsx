@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import "@/app/_styles/globals.css";
 
 import { Josefin_Sans } from "next/font/google";
-import Header from "./_components/Header";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
   display: "swap",
 })
+
+import Image from "next/image";
+import background from "@/public/bg.png";
+
+import Header from "./_components/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -24,9 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen`}>
+      <body className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}>
+        <Image src={background} fill className="object-cover object-top" placeholder="blur" quality={80} alt="Mountains and forests with two cabins" />
         <Header />
-        <main>{children}</main>
+        <div className="flex-1 px-8 py-12">
+          <main className="max-w-7xl mx-auto">{children}</main>
+        </div>
       </body>
     </html>
   );
