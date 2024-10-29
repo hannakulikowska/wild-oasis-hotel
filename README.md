@@ -11,3 +11,5 @@
 * Guests should be able to view all their past and future reservations
 * Guests should be able to update or delete a reservation
 * Guests need to sign up and log in before they can reserve a cabin and perform any operation
+* On sign up, each guest should get a profile in the DB
+* Guests should be able to set and update basic data about their profile to make check-in at the hotel faster
