@@ -8,9 +8,6 @@ const josefin = Josefin_Sans({
   display: "swap",
 })
 
-import Image from "next/image";
-import background from "@/public/bg.png";
-
 import Header from "./_components/Header";
 
 export const metadata: Metadata = {
@@ -28,8 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}>
-        <Image src={background} fill className="object-cover object-top" placeholder="blur" quality={80} alt="Mountains and forests with two cabins" />
+      <body className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col`}>
         <Header />
         <div className="flex-1 px-8 py-12">
           <main className="max-w-7xl mx-auto">{children}</main>
