@@ -17,13 +17,13 @@ export default async function Page({ params }: PageParams) {
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
-      <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
-        <div className="relative scale-[1.15] -translate-x-3">
+      <div className="grid grid-cols-1 grid-rows-[auto_auto] md:grid-cols-[3fr_4fr] md:grid-rows-1 lg:gap-20 border border-primary-800 py-3 px-4 lg:py-3 lg:px-10 mb-10 lg:mb-24">
+        <div className="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-auto lg:h-auto lg:scale-[1.15] lg:-translate-x-3">
           <Image src={image} fill className="object-cover" alt={`Cabin ${name}`} />
         </div>
 
         <div>
-          <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
+          <h3 className="text-accent-100 inline-block font-black text-3xl sm:text-5xl md:text-7xl mb-5 lg:translate-x-[-254px] bg-primary-950 lg:p-6 pt-6 pb-1 lg:w-[150%]">
             Cabin {name}
           </h3>
 
