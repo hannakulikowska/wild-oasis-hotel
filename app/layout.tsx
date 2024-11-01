@@ -8,7 +8,7 @@ const josefin = Josefin_Sans({
   display: "swap",
 })
 
-import Header from "./_components/Header";
+import Header from "@/app/_components/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -27,9 +27,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col`}>
         <Header />
-        <div className="flex-1 px-8 py-12">
-          <main className="max-w-7xl mx-auto">{children}</main>
-        </div>
+        <main className="flex-1 grid px-8 py-12">
+          <div className="max-w-7xl mx-auto w-full">{children}</div>
+        </main>
       </body>
     </html>
   );
