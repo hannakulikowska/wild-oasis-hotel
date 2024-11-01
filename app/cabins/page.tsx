@@ -1,4 +1,6 @@
-import CabinList from "../_components/CabinList";
+import { Suspense } from "react";
+import CabinList from "@/app/_components/CabinList";
+import Spinner from "@/app/_components/Spinner";
 
 export default function Page() {
   return (
@@ -14,8 +16,9 @@ export default function Page() {
         away from home. The perfect spot for a peaceful, calm vacation. Welcome
         to paradise.
       </p>
-
-      <CabinList />
+      <Suspense fallback={<Spinner />}>
+        <CabinList />
+      </Suspense>
     </>
   );
 }
