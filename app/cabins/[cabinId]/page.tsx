@@ -1,18 +1,24 @@
-import { getCabin } from '@/app/_lib/data-service.mjs';
+import { getCabin, getCabins } from '@/app/_lib/data-service.mjs';
 import Image from 'next/image';
 import { FaUsers, FaMapMarkerAlt, FaEyeSlash } from 'react-icons/fa';
 
 interface PageParams {
-  params: {
+  params: Promise<{
     cabinId: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: PageParams) { 
   const { cabinId } = await params;
-  const { name } = await getCabin(cabinId);
+  const cabin = await getCabin(cabinId);
+  return { title: `Cabin ${cabin.name}` };
+}
 
-  return { title: `Cabin ${name}` };
+export async function generateStaticParams() {
+  const cabins = await getCabins();
+
+  const ids = cabins.map(cabin => ({ cabinId: String(cabin.id) }))
+  return ids;
 }
 
 export default async function Page({ params }: PageParams) {
